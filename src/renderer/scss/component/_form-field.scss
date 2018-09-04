@@ -1,7 +1,7 @@
 .form-row {
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
 
   .form-field:not(:first-of-type) {
     padding-left: $spacing-vertical;
@@ -87,8 +87,8 @@
 .form-field__help,
 .form-field__label,
 .form-field__error {
-  font-size: 12px;
   font-family: 'metropolis-medium';
+  font-size: 12px;
 }
 
 .form-field__label {
@@ -128,10 +128,11 @@
 .form-field__select {
   min-width: 60px;
   height: 30px;
-  border-radius: 8px;
+
   background-color: var(--input-select-bg-color);
-  font: normal 12px/30px 'metropolis-medium';
+  border-radius: 8px;
   color: var(--input-select-color);
+  font: normal 12px/30px 'metropolis-medium';
 
   &:disabled {
     opacity: 0.5;

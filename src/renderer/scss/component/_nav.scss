@@ -1,14 +1,13 @@
 .nav {
-  min-width: var(--side-nav-width);
   background-color: var(--nav-bg-color);
-  padding: $spacing-width * 1/3;
   color: var(--nav-color);
+  min-width: var(--side-nav-width);
+  padding: $spacing-width * 1/3;
 
   hr {
-    width: 24px;
-    margin: 36px 0;
     border: solid 1px var(--color-divider);
-    margin: $spacing-vertical $spacing-vertical * 2/3;
+    margin: 36px 0; // $spacing-vertical $spacing-vertical * 2/3; // TODO: Investigate
+    width: 24px;
   }
 
   @media (min-width: $medium-breakpoint) {
@@ -27,7 +26,6 @@
 }
 
 .nav__link {
-  // padding-top: $spacing-vertical / 3;
   color: inherit;
   white-space: nowrap;
 

@@ -1,8 +1,8 @@
 .channel-name {
   display: inline-flex;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .channel-indicator__icon--invalid {

@@ -1,4 +1,7 @@
 .snack-bar {
+  top: $spacing-vertical;
+  right: 0;
+
   background-color: var(--snackbar-bg-primary);
   border-radius: 10px;
   box-shadow: var(--box-shadow-layer);
@@ -13,11 +16,9 @@
   opacity: 0.95;
   padding: 14px 20px 10px 20px;
   position: fixed;
-  right: 0;
-  top: $spacing-vertical;
   transition: all var(--transition-duration) var(--transition-type);
   width: 100%;
-  z-index: 10000; /*hack to get it over react modal */
+  z-index: 10000; // hack to get it over react modal // TODO: Fix this
 }
 
 .snack-bar__action {
@@ -26,10 +27,8 @@
   min-width: min-content;
   text-transform: uppercase;
 
-  span {
-    &:hover {
-      text-decoration: underline;
-    }
+  span:hover {
+    text-decoration: underline;
   }
 }
 
@@ -43,6 +42,7 @@
       font-size: 30px;
       margin-right: 20px;
     }
+
     &:nth-of-type(2) {
       font-size: 16px;
       margin-bottom: 4px;

@@ -1,16 +1,16 @@
 .modal-overlay,
 .error-modal-overlay {
-  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  align-items: center;
+  background-color: var(--modal-overlay-bg);
   display: flex;
   justify-content: center;
-  align-items: center;
-
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: var(--modal-overlay-bg);
-  z-index: 9999;
+  position: fixed;
+  z-index: 9999; // TODO: Is this level necessary?
 }
 
 .modal-overlay--clear {
@@ -18,17 +18,17 @@
 }
 
 .modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-color: var(--modal-bg);
   border: var(--modal-border);
-  background: var(--modal-bg);
-  overflow: auto;
   border-radius: 4px;
-  padding: $spacing-vertical;
   box-shadow: var(--box-shadow-layer);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   max-width: var(--modal-width);
+  overflow: auto;
+  padding: $spacing-vertical;
   word-break: break-word;
 
   .btn.btn--alt {
@@ -38,14 +38,15 @@
 }
 
 .modal--fullscreen {
-  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
+
+  background-color: var(--modal-fullscreen-bg);
   padding: $spacing-vertical;
-  background: var(--modal-fullscreen-bg);
   overflow-y: scroll;
+  position: absolute;
 
   .main {
     // I will come back to these when I do media queries
@@ -58,8 +59,8 @@
 // Slide down isn't possible without doing a lot of re-work to the modal component
 .ReactModal__Overlay {
   .modal--fullscreen {
-    transition: height var(--animation-duration) var(--animation-style);
     height: 0;
+    transition: height var(--animation-duration) var(--animation-style);
   }
 
   &--after-open {
@@ -95,12 +96,12 @@
 }
 
 .error-modal-overlay {
-  background: var(--modal-overlay-bg);
+  background-color: var(--modal-overlay-bg);
 }
 
 .error-modal__content {
   display: flex;
-  padding: 0px 8px 10px 10px;
+  padding: 0 8px 10px 10px;
 }
 
 .error-modal__warning-symbol {
@@ -118,13 +119,14 @@
 }
 
 .error-modal__error-list {
-  /*shitty hack/temp fix for long errors making modal unusable*/
-  border: 1px solid var(--input-border-color);
-  padding: 8px;
-  list-style: none;
-  max-height: 400px;
+  // shitty hack/temp fix for long errors making modal unusable // TODO: Fix this
   max-width: var(--modal-width);
+  max-height: 400px;
+
+  border: 1px solid var(--input-border-color);
+  list-style: none;
   overflow-y: scroll;
+  padding: 8px;
 }
 
 .error-modal__content p {

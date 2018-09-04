@@ -20,6 +20,7 @@ export default appState => {
     minHeight: 600,
     autoHideMenuBar: true,
     show: false,
+    titleBarStyle: 'hiddenInset',
     // Create the window using the state information.
     x: windowState.x,
     y: windowState.y,
@@ -27,6 +28,7 @@ export default appState => {
     width: windowState.width === undefined ? width : windowState.width,
     height: windowState.height === undefined ? height : windowState.height,
 
+    vibrancy: 'appearance-based',
     webPreferences: {
       // Disable renderer process's webSecurity on development to enable CORS.
       webSecurity: !isDev,
@@ -123,7 +125,7 @@ export default appState => {
   window.webContents.on('crashed', () => {
     window = null;
   });
-  
+
   window.webContents.on('new-window', (event, url) => {
     event.preventDefault();
     shell.openExternal(url);

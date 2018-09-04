@@ -1,60 +1,61 @@
 .wunderbar {
-  z-index: 1;
-  flex: 1;
-  display: flex;
-  min-width: 175px;
   cursor: text;
+  display: flex;
+  flex: 1;
+  min-width: 175px;
   position: relative;
+  z-index: 1;
 
   > .icon {
-    position: absolute;
-    left: 10px;
     top: 10px;
+    left: 10px;
+
+    position: absolute;
     z-index: 1;
   }
 }
 
 .wunderbar__input {
-  height: var(--btn-height);
-  border-radius: var(--btn-radius);
   width: 100%;
-  color: var(--search-color);
+  height: var(--btn-height);
+
+  align-items: center;
   background-color: var(--search-bg-color);
+  border-bottom: none;
+  border-radius: var(--btn-radius);
   box-shadow: var(--box-shadow-wunderbar);
-  padding: 10px;
-  padding-left: 30px;
+  color: var(--search-color);
+  display: flex;
   font-size: 13px;
   font-family: 'metropolis-medium';
-  display: flex;
-  align-items: center;
   justify-content: center;
-  border-bottom: none;
+  padding: 10px 10px 10px 30px;
 
   &:focus {
     background-color: var(--search-active-bg-color);
-    border-radius: 0;
     border-bottom: 1px solid var(--color-divider);
+    border-radius: 0;
     box-shadow: var(--box-shadow-button);
   }
 }
 
 .wunderbar__menu {
-  max-width: 100px;
+  background-color: transparent !important;
   border-radius: 0 0 3px 3px !important;
-  padding: 0 !important;
-  background: transparent !important;
+  max-width: 100px;
   overflow-x: hidden;
+  padding: 0 !important;
 }
 
 .wunderbar__suggestion {
-  padding: 5px 10px;
+  align-items: center;
   background-color: var(--search-bg-color);
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  justify-items: flex-start;
-  align-items: center;
   font-family: 'metropolis-medium';
+  justify-items: flex-start;
+  padding: 5px 10px;
 
   &:not(:first-of-type) {
     border-top: 1px solid var(--search-item-border-color);
@@ -73,21 +74,21 @@
 }
 
 .wunderbar__suggestion-label--action {
-  margin-left: $spacing-vertical * 1/3;
-  white-space: nowrap;
   font-family: 'metropolis-medium';
   font-size: 12px;
-  line-height: 0.1; // to vertically align because the font size is smaller
+  line-height: 0.1; // to vertically align because the font size is smaller // TODO: Fix this
+  margin-left: $spacing-vertical * 1/3;
+  white-space: nowrap;
 }
 
 .wunderbar__active-suggestion {
-  color: var(--search-item-active-color);
   background-color: var(--color-secondary);
+  color: var(--search-item-active-color);
 }
 
 .search__top {
-  padding: 0 $spacing-width $spacing-width;
   background-color: var(--search-exact-result);
+  padding: 0 $spacing-width $spacing-width;
 }
 
 .search__content {
@@ -103,7 +104,7 @@
     padding: $spacing-vertical 0;
 
     &:first-of-type {
-      padding-top: 0;
+      padding-top: 0; // TODO: Investigate, seems like an override is happening here
     }
   }
 }

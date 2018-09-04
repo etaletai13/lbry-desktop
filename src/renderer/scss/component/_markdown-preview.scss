@@ -1,7 +1,7 @@
 .markdown-preview {
   margin: 0;
 
-  /* Headers */
+  // Headers
   h1,
   h2,
   h3,
@@ -33,25 +33,25 @@
   }
 
   h6 {
-    font-size: 0.84em;
     color: var(--color-help);
+    font-size: 0.84em;
   }
 
-  /* Paragraphs */
+  // Paragraphs
   p {
     margin: $spacing-vertical * 2/3 0;
     white-space: pre-line;
   }
 
-  /* Strikethrough text */
+  // Strikethrough text
   del {
     color: var(--color-help);
   }
 
-  /* Tables */
+  // Tables
   table {
-    padding: 8px;
     margin: 16px 0;
+    padding: 8px;
     background-color: var(--card-bg);
 
     tr td,
@@ -64,36 +64,37 @@
     }
   }
 
-  /* Image */
+  // Image
   img {
     margin: 16px 0;
   }
 
-  /* Horizontal Rule */
+  // Horizontal Rule
   hr {
     border: 1px solid var(--color-divider);
   }
 
-  /* Code */
+  // Code
   code {
-    display: block;
-    padding: 8px;
     margin: 16px 0;
+    padding: 8px;
+
     background-color: var(--color-bg-alt);
     color: var(--color-help);
-    font-size: 1em;
+    display: block;
     font-family: Consolas, 'Lucida Console', 'Source Sans', monospace;
+    font-size: 1em;
   }
 
   a {
-    font-size: 1em;
     color: var(--btn-external-color);
     display: inline-block;
+    font-size: 1em;
   }
 
-  /* Lists */
-  ul,
-  ol {
+  // Lists
+  ol,
+  ul {
     margin-bottom: 2em;
   }
 
@@ -103,6 +104,7 @@
 
   li {
     margin-left: 2em;
+
     p {
       display: inline-block;
     }
@@ -115,9 +117,11 @@
 }
 
 blockquote {
-  padding: 8px;
+  // TODO: Shouldn't this be with the above styles? Why is it outside?
   margin: 16px 0;
-  color: var(--color-help);
-  border-left: 2px solid var(--color-help);
+  padding: 8px;
+
   background-color: var(--color-bg-alt);
+  border-left: 2px solid var(--color-help);
+  color: var(--color-help);
 }
