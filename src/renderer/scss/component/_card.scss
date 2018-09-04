@@ -1,12 +1,12 @@
 .card {
+  border-radius: var(--card-radius);
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  border-radius: var(--card-radius);
-  user-select: text;
-  display: flex;
-  position: relative;
-  flex-direction: column;
   max-width: var(--card-max-width);
+  position: relative;
+  user-select: text;
 }
 
 .card > h1 {
@@ -14,9 +14,10 @@
 }
 
 .card--section {
-  background-color: var(--card-bg);
-  padding: $spacing-vertical;
   margin-top: $spacing-vertical * 2/3;
+  padding: $spacing-vertical;
+
+  background-color: var(--card-bg);
   box-shadow: var(--box-shadow-layer);
 }
 
@@ -68,16 +69,16 @@
 }
 
 .card__media {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
   background-color: var(--color-placeholder);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .card__media--no-img {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
 }
 
@@ -90,8 +91,8 @@
 }
 
 .card__title-identity--file {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
 
   .icon {
@@ -100,14 +101,14 @@
 }
 
 .card__title-identity-icons {
-  display: flex;
   align-items: center;
   align-self: flex-start;
+  display: flex;
 }
 
 .card__title {
-  font-size: 18px;
   color: var(--text-color);
+  font-size: 18px;
 }
 
 .card__title--small {
@@ -131,18 +132,17 @@
 
 .card__title--file {
   font-family: 'metropolis-bold';
-  font-size: 28px;
+  font-size: 18px; // 28px
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 5px;
-  font-size: 18px;
 }
 
 .card__title--file-card {
-  padding-top: $spacing-vertical * 1/3;
   // height is the same height that two lines of title fill
   // doing this so content below the title is inline accross the row
   height: 30px;
+  padding-top: $spacing-vertical * 1/3;
 
   @media only screen and (min-width: $medium-breakpoint) {
     height: 36px;
@@ -150,10 +150,10 @@
 }
 
 .card__subtitle {
-  margin: 0;
+  color: var(--card-text-color);
   font-size: 14px;
   font-family: 'metropolis-medium';
-  color: var(--card-text-color);
+  margin: 0;
 }
 
 .card__subtitle--x-small {
@@ -176,16 +176,16 @@
 
 .card__meta {
   color: var(--color-help);
-  font-size: 14px;
   font-family: 'metropolis-medium';
+  font-size: 14px;
   padding-top: $spacing-vertical * 2/3;
 }
 
 .card__file-properties {
-  display: flex;
   align-items: center;
-  padding-top: $spacing-vertical * 1/3;
   color: var(--card-text-color);
+  display: flex;
+  padding-top: $spacing-vertical * 1/3;
 
   .icon + .icon,
   .credit-amount + .icon {
@@ -196,9 +196,9 @@
 // .card-media__internal__links should always be inside a card
 .card {
   .card-media__internal-links {
-    position: absolute;
     top: $spacing-vertical * 2/3;
     right: $spacing-vertical * 2/3;
+    position: absolute;
   }
 }
 
@@ -211,15 +211,15 @@
 
 // Channel info with buttons on the right side
 .card__channel-info {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: $spacing-width 0 0;
 }
 
 .card__channel-info--large {
-  padding-top: 0;
   padding-bottom: $spacing-vertical * 2/3;
+  padding-top: 0;
 }
 
 .card__content {
@@ -240,10 +240,10 @@
 }
 
 .card__subtext {
+  font-family: 'metropolis-medium';
   font-size: calc(var(--font-size-subtext-multiple) * 1em);
   padding-top: $spacing-vertical * 1/3;
   word-break: break-word;
-  font-family: 'metropolis-medium';
 }
 
 .card__subtext--small {
@@ -255,8 +255,8 @@
 }
 
 .card__actions {
-  margin-top: $spacing-vertical * 2/3;
   display: flex;
+  margin-top: $spacing-vertical * 2/3;
 
   &:not(.card__actions--vertical) {
     .btn:nth-child(n + 2),
@@ -272,9 +272,9 @@
 }
 
 .card__actions--vertical {
+  align-items: flex-end;
   flex-direction: column;
   margin-top: 0;
-  align-items: flex-end;
 
   .btn:not(:first-child) {
     margin-top: $spacing-vertical * 1/3;
@@ -291,15 +291,15 @@
 }
 
 .card__actions-top-corner {
-  position: absolute;
   top: $spacing-vertical;
   right: $spacing-vertical;
+  position: absolute;
 }
 
 .card__actions-bottom-corner {
-  position: absolute;
   bottom: $spacing-vertical;
   right: $spacing-vertical;
+  position: absolute;
 }
 
 .card__actions--end {
@@ -307,8 +307,8 @@
 }
 
 .card__actions--between {
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /*
@@ -317,9 +317,9 @@
  There are left/right arrows to scroll the cards and view hidden content
 */
 .card-row {
+  padding-top: $spacing-vertical;
   white-space: nowrap;
   width: 100%;
-  padding-top: $spacing-vertical;
 
   &:last-of-type {
     padding-bottom: $spacing-vertical * 2/3;
@@ -337,8 +337,8 @@
 }
 
 .card-row__title {
-  display: flex;
   align-items: center;
+  display: flex;
   font-size: 18px;
   line-height: 24px;
 
@@ -357,13 +357,13 @@
 }
 
 .card-row__scrollhouse {
-  padding-top: $spacing-vertical * 2/3;
   overflow: hidden;
+  padding-top: $spacing-vertical * 2/3;
 
   .card {
     display: inline-block;
-    vertical-align: top;
     overflow-y: visible;
+    vertical-align: top;
     // 31 px to handle to padding between cards
     width: calc((100% / 4) - 34px);
 
@@ -400,8 +400,8 @@
 .card__list {
   .card {
     display: inline-block;
-    vertical-align: top;
     margin-bottom: $spacing-vertical * 3/2;
+    vertical-align: top;
 
     @media only screen and (max-width: $medium-breakpoint) {
       width: calc((100% / 4) - (60px / 4)); // 60px === 20px margin-right * three cards
@@ -432,9 +432,9 @@
 .card__list--rewards {
   .card {
     display: inline-block;
-    width: calc(50% - 10px);
     margin-bottom: 20px;
     vertical-align: top;
+    width: calc(50% - 10px);
 
     &:not(:nth-child(2n + 1)) {
       margin-left: 20px;
@@ -460,41 +460,51 @@
 }
 
 .card__media--autothumb {
-  color: red !important;
+  color: red !important; // TODO: Why not variable color?
 }
 
 .card__media {
   &.card__media--autothumb.purple {
-    background-color: #9c27b0;
+    background-color: #9c27b0; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.red {
-    background-color: #e53935;
+    background-color: #e53935; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.pink {
-    background-color: #e91e63;
+    background-color: #e91e63; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.indigo {
-    background-color: #3f51b5;
+    background-color: #3f51b5; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.blue {
-    background-color: #2196f3;
+    background-color: #2196f3; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.light-blue {
-    background-color: #039be5;
+    background-color: #039be5; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.cyan {
-    background-color: #00acc1;
+    background-color: #00acc1; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.teal {
-    background-color: #009688;
+    background-color: #009688; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.green {
-    background-color: #43a047;
+    background-color: #43a047; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.yellow {
-    background-color: #ffeb3b;
+    background-color: #ffeb3b; // TODO: Why not variable color?
   }
+
   &.card__media--autothumb.orange {
-    background-color: #ffa726;
+    background-color: #ffa726; // TODO: Why not variable color?
   }
 }

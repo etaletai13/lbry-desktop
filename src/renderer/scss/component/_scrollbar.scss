@@ -5,14 +5,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--scrollbar-track-bg);
+  background-color: var(--scrollbar-track-bg);
   border-radius: var(--scrollbar-radius);
   margin: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: var(--scrollbar-radius);
   background-color: var(--scrollbar-thumb-bg);
+  border-radius: var(--scrollbar-radius);
   transition: background-color 0.3s ease;
 }
 

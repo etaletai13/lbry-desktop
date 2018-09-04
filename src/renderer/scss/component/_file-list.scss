@@ -12,8 +12,8 @@
 }
 
 .file-list__header {
-  padding-top: $spacing-vertical * 4/3;
   font-size: 24px;
+  padding-top: $spacing-vertical * 4/3;
 
   .tooltip {
     margin-left: 5px;
@@ -25,14 +25,14 @@
   padding-top: $spacing-vertical;
 
   .card__media {
-    height: var(--file-tile-media-height);
     flex: 0 0 var(--file-tile-media-width);
+    height: var(--file-tile-media-height);
   }
 
   .card__subtitle {
-    line-height: 1;
-    display: flex;
     align-items: center;
+    display: flex;
+    line-height: 1;
   }
 }
 
@@ -44,15 +44,15 @@
   padding-top: $spacing-vertical * 2/3;
 
   .card__media {
-    height: var(--file-tile-media-height-small);
     flex: 0 0 var(--file-tile-media-width-small);
+    height: var(--file-tile-media-height-small);
   }
 }
 
 .file-tile.file-tile--large {
   .card__media {
-    height: var(--file-tile-media-height-large);
     flex: 0 0 var(--file-tile-media-width-large);
+    height: var(--file-tile-media-height-large);
   }
 }
 

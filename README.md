@@ -18,23 +18,23 @@ The LBRY app is a graphical browser for the decentralized content marketplace pr
 
 We provide installers for Windows, macOS (v10.9 or greater), and Debian-based Linux. See community maintained builds section for alternative Linux installations.
 
-|                       | Windows                                      | macOS                                        | Linux                                        
+|                       | Windows                                      | macOS                                        | Linux
 | --------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
 | Latest Stable Release | [Download](https://lbry.io/get/lbry.exe)     | [Download](https://lbry.io/get/lbry.dmg)     | [Download](https://lbry.io/get/lbry.deb)
 | Latest Pre-release    | [Download](https://lbry.io/get/lbry.pre.exe) | [Download](https://lbry.io/get/lbry.pre.dmg) | [Download](https://lbry.io/get/lbry.pre.deb)
 
 Our [releases page](https://github.com/lbryio/lbry-desktop/releases) also contains the latest
-release, pre-releases, and past builds.   
+release, pre-releases, and past builds.
 *Note: If the deb fails to install using the Ubuntu Software Center, install manually via `sudo dpkg -i <path to deb>`. You'll need to run `sudo apt-get install -f` if this is the first time installing it to install dependencies*
 
-To install from source or make changes to the application, continue to the next section below.   
+To install from source or make changes to the application, continue to the next section below.
 
 **Community maintained** builds for Arch Linux and Flatpak are available, see below. These installs will need to be updated manually as the in-app update process only supports deb installs at this time.
 *Note: If coming from a deb install, the directory structure is different and you'll need to [migrate data](https://lbry.io/faq/backup-data).*
 
-|                       | Flatpak                                   | Arch  | Raspberry Pi       |                                                                                                                              
+|                       | Flatpak                                   | Arch  | Raspberry Pi       |
 | --------------------- | ------------------------------------------|------------------| --------------------------------------------
-| Latest Release        | [FlatHub Page](https://flathub.org/apps/details/io.lbry.lbry-app)   | [AUR Package](https://aur.archlinux.org/packages/lbry-app-bin/)  | [Pi Installer](https://lbrypi.com)  | 
+| Latest Release        | [FlatHub Page](https://flathub.org/apps/details/io.lbry.lbry-app)   | [AUR Package](https://aur.archlinux.org/packages/lbry-app-bin/)  | [Pi Installer](https://lbrypi.com)  |
 | Maintainers           | [@choofee](https://github.com/choffee)/[@iuyte](https://github.com/iuyte)    | [@kcseb](https://github.com/kcseb)/[@TimurKiyivinski](https://github.com/TimurKiyivinski) |[@Madiator2011](https://github.com/kodxana)
 
 ## Usage

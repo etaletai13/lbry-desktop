@@ -39,12 +39,12 @@ html {
 }
 
 body {
-  font-family: 'metropolis-semibold';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
   color: var(--text-color);
+  font-family: 'metropolis-semibold';
+  font-size: 16px;
+  font-weight: 400;
   height: 100%;
+  line-height: 1.5;
   overflow: hidden;
 }
 
@@ -53,14 +53,14 @@ body {
 }
 
 code {
-  font: 1.5em Consolas, 'Lucida Console', 'Source Sans', monospace;
   background-color: var(--color-bg-alt);
+  font: 1.5em Consolas, 'Lucida Console', 'Source Sans', monospace;
 }
 
 // Without this buttons don't have the Metropolis font
 button {
-  font-weight: inherit;
   font-family: inherit;
+  font-weight: inherit;
 }
 
 ul {
@@ -69,12 +69,12 @@ ul {
 }
 
 input {
+  background-color: transparent;
   border-bottom: var(--input-border-size) dotted var(--input-border-color);
   color: var(--input-color);
-  line-height: 1;
   cursor: text;
-  background-color: transparent;
   font-family: 'metropolis-medium';
+  line-height: 1;
 
   &[type='radio'],
   &[type='checkbox'],
@@ -86,34 +86,36 @@ input {
   &[type='file'] {
     border-bottom: none;
   }
+
   &.input-copyable {
-    flex: 1;
-    background: var(--input-copyable-bg);
-    color: var(--input-copyable-color);
-    padding: 10px 16px;
+    background-color: var(--input-copyable-bg);
     border: 1px dashed var(--input-copyable-border);
+    color: var(--input-copyable-color);
+    flex: 1;
+    padding: 10px 16px;
   }
 
   &:not(.input-copyable):not(.wunderbar__input):not(:placeholder-shown):not(:disabled) {
     &:hover {
       border-color: var(--input-hover-border-color);
     }
+
     border-bottom: var(--input-border-size) solid var(--input-border-color);
   }
 
   &:disabled {
-    color: var(--input-disabled-color);
     border-bottom: var(--input-border-size) solid var(--input-disabled-color);
+    color: var(--input-disabled-color);
     cursor: default;
   }
 }
 
 textarea {
-  font-family: 'metropolis-medium';
   border: 1px solid var(--color-divider);
+  font-family: 'metropolis-medium';
   font-size: 0.8em;
-  width: 100%;
   padding: $spacing-vertical * 1/3;
+  width: 100%;
 }
 
 input::placeholder {
@@ -130,25 +132,28 @@ button + input {
 }
 
 dl {
-  width: 100%;
-  overflow: hidden;
-  padding: 0;
   margin: 0;
+  padding: 0;
+
   overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
 }
 
 dt {
+  margin: 0;
+  padding: 0;
+
   float: left;
   width: 20%;
-  padding: 0;
-  margin: 0;
 }
 
 dd {
+  margin: 0;
+  padding: 0;
+
   float: left;
   width: 80%;
-  padding: 0;
-  margin: 0;
 }
 
 p {
@@ -156,14 +161,15 @@ p {
 }
 
 .page {
-  z-index: 0;
-  position: absolute;
   top: var(--header-height);
   left: 0;
-  right: 0;
   bottom: 0;
-  display: flex;
+  right: 0;
+
   background-color: var(--color-bg);
+  display: flex;
+  position: absolute;
+  z-index: 0;
 
   @media only screen and (min-width: $medium-breakpoint) {
     grid-template-columns: var(--side-nav-width-m) auto;
@@ -183,14 +189,14 @@ p {
 }
 
 .main {
-  padding: $spacing-width $spacing-width;
   margin: auto;
+  padding: $spacing-width $spacing-width;
   overflow: hidden;
 }
 
 .main--contained {
-  max-width: 1000px;
   margin: auto;
+  max-width: 1000px;
 }
 
 .main--no-padding {
@@ -206,14 +212,14 @@ p {
 }
 
 .main--for-content {
-  padding: $spacing-width * 2/3;
   display: flex;
   justify-content: center;
+  padding: $spacing-width * 2/3;
 }
 
 .page__header {
   padding: $spacing-vertical * 2/3;
-  padding-bottom: 0;
+  padding-bottom: 0; // TODO: Fix
 }
 
 .page__title {
@@ -221,12 +227,12 @@ p {
 }
 
 .page__empty {
-  margin-top: 200px;
-  text-align: center;
-  font-family: 'metropolis-medium';
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  font-family: 'metropolis-medium';
+  margin-top: 200px;
+  text-align: center;
 }
 
 .columns {
@@ -234,8 +240,8 @@ p {
   justify-content: space-between;
 
   > * {
-    flex-grow: 1;
     flex-basis: 0;
+    flex-grow: 1;
 
     &:not(:first-of-type):not(:last-of-type) {
       margin: 0 $spacing-vertical / 3;
@@ -251,9 +257,9 @@ p {
   }
 }
 
-/* Custom text selection */
+// Custom text selection
 *::selection {
-  background: var(--text-selection-bg);
+  background-color: var(--text-selection-bg);
   color: var(--text-selection-color);
 }
 
@@ -268,8 +274,8 @@ p {
 }
 
 .credit-amount--file-page {
-  font-family: 'metropolis-bold';
   border-radius: 5px;
+  font-family: 'metropolis-bold';
   padding: 5px;
 }
 
@@ -277,8 +283,8 @@ p {
   color: var(--color-credit-free);
 
   &.credit-amount--file-page {
-    color: var(--color-dark-blue);
     background-color: var(--color-secondary);
+    color: var(--color-dark-blue);
   }
 }
 
@@ -286,17 +292,17 @@ p {
   color: var(--color-credit-price);
 
   &.credit-amount--file-page {
-    color: var(--color-black);
     background-color: var(--color-yellow);
+    color: var(--color-black);
   }
 }
 
 .credit-amount--inherit {
   background-color: inherit;
   color: inherit;
-  font-weight: inherit;
-  font-size: inherit;
   font-family: 'metropolis-medium';
+  font-size: inherit;
+  font-weight: inherit;
   padding: 0;
 }
 
@@ -310,8 +316,8 @@ p {
 }
 
 .disabled {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .column {
@@ -323,8 +329,7 @@ p {
 }
 
 .truncated-text {
-  //display: inline-block;
-  display: -webkit-box;
+  display: -webkit-box; // display: inline-block; // TODO: investigate
   overflow: hidden;
   -webkit-box-orient: vertical;
 }
@@ -334,25 +339,28 @@ p {
 }
 
 .busy-indicator__loader {
-  background: url('../../../static/img/busy.gif') no-repeat center center;
-  display: inline-block;
-  margin: -1em 0;
   min-width: 16px;
   min-height: 8px;
-  vertical-align: middle;
+  margin: -1em 0;
   padding: 0 30px;
-  &:last-child {
-    padding-right: 2px;
-  }
+
+  background: url('../../../static/img/busy.gif') no-repeat center center;
+  display: inline-block;
+  vertical-align: middle;
+
   &:first-child {
     padding-left: 2px;
+  }
+
+  &:last-child {
+    padding-right: 2px;
   }
 }
 
 .help {
-  font-size: 12px;
-  font-family: 'metropolis-medium';
   color: var(--color-help);
+  font-family: 'metropolis-medium';
+  font-size: 12px;
 }
 
 .help--padded {
@@ -360,9 +368,9 @@ p {
 }
 
 .meta {
+  color: var(--color-meta-light);
   font-family: 'metropolis-medium';
   font-size: 14px;
-  color: var(--color-meta-light);
 }
 
 .empty {
@@ -371,12 +379,14 @@ p {
 }
 
 .qr-code {
-  border: 3px solid var(--color-white);
-  height: 134px;
   width: 134px;
+  height: 134px;
+  border: 3px solid var(--color-white);
+
   &.qr-code--right-padding {
     margin-right: $spacing-vertical * 2/3;
   }
+
   &.qr-code--top-padding {
     margin-top: $spacing-vertical * 2/3;
   }
@@ -387,7 +397,7 @@ p {
 }
 
 .thumbnail-preview {
-  height: var(--thumbnail-preview-height);
   width: var(--thumbnail-preview-width);
+  height: var(--thumbnail-preview-height);
   border: var(--thumbnail-preview-border);
 }

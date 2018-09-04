@@ -28,22 +28,27 @@ iframe {
   margin: 0;
   padding: 0;
 }
+
 :focus {
   outline: 0;
 }
+
 input::-webkit-search-cancel-button {
-  /* Remove default */
+  // Remove default
   -webkit-appearance: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 fieldset,
 img,
 iframe {
   border: 0;
 }
+
 h1,
 h2,
 h3,
@@ -52,27 +57,32 @@ h5,
 h6 {
   font-weight: normal;
 }
+
 ol,
 ul {
   list-style-position: inside;
+
   > li {
     list-style-position: inside;
   }
 }
+
 input,
 textarea,
 select {
+  border: 0 none;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  border: 0 none;
 }
+
 img {
   width: auto;
   height: auto;
   vertical-align: middle;
   -ms-interpolation-mode: bicubic;
 }
+
 a {
   color: inherit;
   text-decoration: none;
