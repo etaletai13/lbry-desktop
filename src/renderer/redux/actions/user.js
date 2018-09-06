@@ -1,15 +1,10 @@
 import * as ACTIONS from 'constants/action_types';
 import Lbryio from 'lbryio';
 import { Lbry, doNotify, MODALS, doHideNotification } from 'lbry-redux';
-import { doClaimRewardType, doRewardList } from 'redux/actions/rewards';
-import {
-  selectEmailToVerify,
-  selectPhoneToVerify,
-  selectUserCountryCode,
-} from 'redux/selectors/user';
-import rewards from 'rewards';
+import { doClaimRewardType, doRewardList } from 'lbryinc';
+import { selectEmailToVerify, selectPhoneToVerify, selectUserCountryCode } from 'lbryinc';
+import { rewards } from 'lbryinc';
 import analytics from 'analytics';
-import pjson from 'package.json';
 
 export function doFetchInviteStatus() {
   return dispatch => {
@@ -37,7 +32,6 @@ export function doFetchInviteStatus() {
 }
 
 export function doInstallNew() {
-  const payload = { app_version: pjson.version };
   Lbry.status().then(status => {
     payload.app_id = status.installation_id;
     if (status.dht) payload.node_id = status.dht.node_id;

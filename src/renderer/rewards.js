@@ -14,6 +14,7 @@ rewards.TYPE_FEATURED_DOWNLOAD = 'featured_download';
 rewards.TYPE_REFERRAL = 'referral';
 rewards.YOUTUBE_CREATOR = 'youtube_creator';
 rewards.SUBSCRIPTION = 'subscription';
+rewards.TYPE_GENERATE_CODE = 'generate_code';
 
 rewards.claimReward = type => {
   function requestReward(resolve, reject, params) {
