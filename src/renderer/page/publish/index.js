@@ -5,6 +5,8 @@ import {
   selectPublishFormValues,
   selectIsStillEditing,
   selectMyClaimForUri,
+  selectIsResolvingPublishUris,
+  selectWinningClaims
 } from 'redux/selectors/publish';
 import {
   doResetThumbnailStatus,
@@ -21,35 +23,32 @@ const select = state => {
   const publishState = selectPublishFormValues(state);
   const { uri } = publishState;
 
-  const resolvingUris = selectResolvingUris(state);
-  let isResolvingUri = false;
-  if (uri) {
-    isResolvingUri = resolvingUris.includes(uri);
-  }
 
-  let claimForUri;
+
+  const { claimForShortUri, claimForUriWithChannel } = selectWinningClaims(state);
+  
   let winningBidForClaimUri;
-  if (!myClaimForUri) {
-    // if the uri isn't from a users claim, find the winning bid needed for the vanity url
-    // in the future we may want to display this on users claims
-    // ex: "you own this, for 5 more lbc you will win this claim"
-    const claimsByUri = selectClaimsByUri(state);
-    claimForUri = claimsByUri[uri];
-    winningBidForClaimUri = claimForUri ? claimForUri.effective_amount : null;
+  let winndingBidForClaimWithChannel;
+  if (claimForUriWithChannel) {
+    winndingBidForClaimWithChannel = claimForUriWithChannel.effective_amount;
   }
-
+  if (claimForShortUri) {
+    winningBidForClaimUri = claimForShortUri.effective_amount;
+  }
+  
   return {
     ...publishState,
-    isResolvingUri,
     // The winning claim for a short lbry uri
-    claimForUri,
+    // claimForShortUri,
     winningBidForClaimUri,
+    winndingBidForClaimWithChannel,
     // My previously published claims under this short lbry uri
     myClaimForUri,
     // If I clicked the "edit" button, have I changed the uri?
     // Need this to make it easier to find the source on previously published content
     isStillEditing,
     balance: selectBalance(state),
+    isResolvingUris: selectIsResolvingPublishUris(state),
   };
 };
 

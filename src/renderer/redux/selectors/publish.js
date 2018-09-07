@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { parseURI, selectClaimsById, selectMyClaimsWithoutChannels } from 'lbry-redux';
+import { parseURI, selectClaimsById, selectMyClaimsWithoutChannels, selectResolvingUris, buildURI, selectClaimsByUri } from 'lbry-redux';
 
 const selectState = state => state.publish || {};
 
@@ -93,3 +93,43 @@ export const selectMyClaimForUri = createSelector(
         );
   }
 );
+
+export const selectIsResolvingPublishUris = createSelector(
+    selectState,
+    selectResolvingUris,
+    ({ uri }, resolvingUris) => {
+      if (uri) {
+        const isResolvingUri = resolvingUris.includes(uri);
+        return isResolvingUri;
+      }
+      
+      return false;
+    }
+  )
+  
+export const selectWinningClaims = createSelector(
+  selectState,
+  selectMyClaimForUri,
+  selectClaimsByUri,
+  ({ name, channel }, myClaimForUri, claimsByUri) => {
+      const shortUri = buildURI({ contentName: name });
+      
+      let uriWithChannel;
+      if (channel) {
+        // debugger;
+        uriWithChannel = buildURI({ contentName: name, channelName: channel });
+      }
+
+      let claimForShortUri;
+      let claimForUriWithChannel;
+      if (!myClaimForUri) {
+        // if the uri isn't from a users claim, find the winning bid needed for the vanity url
+        // in the future we may want to display this on users claims
+        // ex: "you own this, for 5 more lbc you will win this claim"
+        claimForShortUri = claimsByUri[shortUri];
+        claimForUriWithChannel = claimsByUri[uriWithChannel];
+      }
+      
+      return { claimForShortUri, claimForUriWithChannel };
+  }
+)

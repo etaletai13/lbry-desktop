@@ -40,6 +40,7 @@ type Props = {
   nameError: ?string,
   isResolvingUri: boolean,
   winningBidForClaimUri: number,
+  winndingBidForClaimWithChannel: ?number,
   myClaimForUri: ?Claim,
   licenseType: string,
   otherLicenseDescription: ?string,
@@ -84,6 +85,7 @@ class PublishForm extends React.PureComponent<Props> {
     // If they are midway through a channel creation, treat it as anonymous until it completes
     const channelName = channel === CHANNEL_ANONYMOUS || channel === CHANNEL_NEW ? '' : channel;
 
+    // We are only going to store the full uri, but we need to resolve the uri with and without the channel name
     let uri;
     try {
       uri = buildURI({ contentName: name, channelName });
@@ -92,6 +94,11 @@ class PublishForm extends React.PureComponent<Props> {
     }
 
     if (uri) {
+      if (channelName) {
+        // resolve without the channel name so we know the winning bid for it
+        const uriLessChannel = buildURI({ contentName: name });
+        resolveUri(uriLessChannel);
+      }
       resolveUri(uri);
       return uri;
     }
@@ -326,6 +333,7 @@ class PublishForm extends React.PureComponent<Props> {
       nameError,
       isResolvingUri,
       winningBidForClaimUri,
+      winndingBidForClaimWithChannel,
       myClaimForUri,
       licenseType,
       otherLicenseDescription,
@@ -514,6 +522,7 @@ class PublishForm extends React.PureComponent<Props> {
                       editingURI={editingURI}
                       isResolvingUri={isResolvingUri}
                       winningBidForClaimUri={winningBidForClaimUri}
+                      winndingBidForClaimWithChannel={winndingBidForClaimWithChannel}
                       myClaimForUri={myClaimForUri}
                       onEditMyClaim={this.editExistingClaim}
                     />

@@ -22,6 +22,7 @@ class BidHelpText extends React.PureComponent<Props> {
       myClaimForUri,
       onEditMyClaim,
       isStillEditing,
+      winndingBidForClaimWithChannel
     } = this.props;
 
     if (!uri) {
@@ -58,16 +59,35 @@ class BidHelpText extends React.PureComponent<Props> {
         </React.Fragment>
       );
     }
-
-    return winningBidForClaimUri ? (
+    
+    if (!winningBidForClaimUri && !winndingBidForClaimWithChannel) {
+      return __('Any amount will give you the winning bid.');
+    }
+    
+    const generateTakeOverMessage = (amount, uri) => {
+      return `${__('A deposit greater than')} ${amount} ${__('is needed to win')} ${uri}`
+    }
+    
+    let content;
+    if (winndingBidForClaimWithChannel) {
+      content = `Winning bid is ${winndingBidForClaimWithChannel}`
+    }
+    
+    // <div>
+    //   {__('However, you can still get')}{' '}
+    //   {(winndingBidForClaimWithChannel && winningBidForClaimUri) ? __('these URLs for any amount')}
+    // </div>
+    return (
       <React.Fragment>
-        {__('A deposit greater than')} {winningBidForClaimUri} {__('is needed to win')}
-        {` ${uri}. `}
-        {__('However, you can still get this URL for any amount.')}
+        {winningBidForClaimUri && (
+          <div>{generateTakeOverMessage(winningBidForClaimUri, uri)}</div>
+        )}
+        {winndingBidForClaimWithChannel && (
+          <div>{generateTakeOverMessage(winndingBidForClaimWithChannel, "uri with channel")}</div>
+        )}
+
       </React.Fragment>
-    ) : (
-      __('Any amount will give you the winning bid.')
-    );
+    )
   }
 }
 
