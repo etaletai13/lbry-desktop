@@ -1,25 +1,100 @@
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px; height: 7px;
+  width: 0; //
+
+  background-color: transparent;
   overflow: auto;
+
+  &:hover {
+    width: 10px; height: 10px;
+  }
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-track-bg);
-  border-radius: var(--scrollbar-radius);
-  margin: 4px;
+  background-color: transparent;
+  margin: 2px;
+
+  // display: none;
+  // background-color: var(--scrollbar-track-bg);
+  // border-radius: var(--scrollbar-radius);
+  // margin: 4px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  // display: none;
+  // opacity: 0;
+  // visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb:window-active {
+  // display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-bg);
+  background-color: #7f7f7f; // var(--scrollbar-thumb-bg);
   border-radius: var(--scrollbar-radius);
-  transition: background-color 0.3s ease;
-}
+  transition: all 0.2s ease;
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover-bg);
+  // opacity: 1;
+  // visibility: visible;
+
+  /*
+  &:not(:hover) {
+    display: none;
+  }
+  */
+
+  &:hover {
+    background-color: var(--scrollbar-thumb-hover-bg);
+  }
 }
 
 ::-webkit-scrollbar-thumb:active {
   background-color: var(--scrollbar-thumb-active-bg);
+}
+
+
+
+scrollbar,
+scrollbartrack {
+}
+
+scrollbar {
+  top: var(--header-height); right: 0;
+
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  position: fixed;
+
+  &:not(:hover) {
+    width: 9px;
+
+    scrollbartrack {
+      width: 7px;
+    }
+  }
+
+  &:hover {
+    background-color: white;
+    border-left: 1px solid #e1e1e1;
+    width: 15px;
+
+    scrollbartrack {
+      border: 1px solid var(--color-grey-light);
+      width: 11px;
+    }
+  }
+}
+
+scrollbartrack {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  display: block;
+  height: 0; // overridden by JS
+  // min-height: 10px; height: 50vh; //
+  position: relative;
+  transition: all 0.2s; //
 }

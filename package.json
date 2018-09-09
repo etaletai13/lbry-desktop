@@ -29,7 +29,7 @@
     "format": "prettier 'src/**/*.{js,jsx,scss,json}' --write",
     "flow-defs": "flow-typed install",
     "release": "yarn compile && electron-builder build",
-    "precommit": "lint-staged",
+    "-precommit": "lint-staged",
     "preinstall": "yarn cache clean lbry-redux",
     "postinstall": "electron-builder install-app-deps && node build/downloadDaemon.js"
   },

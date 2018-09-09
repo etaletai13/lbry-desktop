@@ -6,29 +6,29 @@ import * as icons from 'constants/icons';
 
 type Props = {
   autoUpdateDownloaded: boolean,
+  back: () => void,
   balance: string,
-  isUpgradeAvailable: boolean,
-  roundedBalance: string,
+  downloadUpgradeRequested: any => void,
+  forward: () => void,
   isBackDisabled: boolean,
   isForwardDisabled: boolean,
-  back: () => void,
-  forward: () => void,
-  downloadUpgradeRequested: any => void,
+  isUpgradeAvailable: boolean,
   navigate: any => void,
+  roundedBalance: string,
 };
 
 const Header = (props: Props) => {
   const {
     autoUpdateDownloaded,
+    back,
     balance,
     downloadUpgradeRequested,
+    forward,
+    isBackDisabled,
+    isForwardDisabled,
     isUpgradeAvailable,
     navigate,
     roundedBalance,
-    back,
-    isBackDisabled,
-    forward,
-    isForwardDisabled,
   } = props;
 
   const showUpgradeButton =
@@ -38,36 +38,33 @@ const Header = (props: Props) => {
     <header className="header">
       <div className="header__navigation">
         <Button
-          noPadding
-          button="alt"
-          icon={icons.HOME}
-          className="btn--home-nav"
+          className="header__navigation__item back"
+          description={__('Navigate back')}
+          disabled={isBackDisabled}
+          onClick={back}
+        />
+
+        <Button
+          className="header__navigation__item forward"
+          description={__('Navigate forward')}
+          disabled={isForwardDisabled}
+          onClick={forward}
+        />
+
+        <Button
+          className="header__navigation__item home"
           description={__('Home')}
           onClick={() => navigate('/discover')}
         />
-        <div className="header__history">
-          <Button
-            className="btn--arrow"
-            icon={icons.ARROW_LEFT}
-            description={__('Navigate back')}
-            onClick={back}
-            disabled={isBackDisabled}
-          />
-          <Button
-            className="btn--arrow"
-            icon={icons.ARROW_RIGHT}
-            description={__('Navigate forward')}
-            onClick={forward}
-            disabled={isForwardDisabled}
-          />
-        </div>
       </div>
+
       <WunderBar />
-      <div className="header__actions-right">
+
+      <div className="header__navigation">
         <Button
-          button="inverse"
-          className="btn--header-balance"
-          onClick={() => navigate('/wallet')}
+          className="header__navigation__item wallet"
+          description={__('Your wallet')}
+          iconRight="LBC"
           label={
             isUpgradeAvailable ? (
               `${balance}`
@@ -80,26 +77,23 @@ const Header = (props: Props) => {
               </React.Fragment>
             )
           }
-          iconRight="LBC"
-          description={__('Your wallet')}
+          onClick={() => navigate('/wallet')}
         />
 
         <Button
-          uppercase
-          button="primary"
-          className="btn--header-publish"
-          onClick={() => navigate('/publish')}
-          icon={icons.UPLOAD}
-          label={isUpgradeAvailable ? '' : __('Publish')}
+          className="header__navigation__item publish"
           description={__('Publish content')}
+          disabled={isUpgradeAvailable} // TODO: Not sure if this works
+          // label={isUpgradeAvailable ? '' : __('Publish')}
+          onClick={() => navigate('/publish')}
         />
 
         {showUpgradeButton && (
           <Button
             button="primary"
-            onClick={downloadUpgradeRequested}
             icon={icons.DOWNLOAD}
             label={__('Upgrade App')}
+            onClick={downloadUpgradeRequested}
           />
         )}
       </div>
