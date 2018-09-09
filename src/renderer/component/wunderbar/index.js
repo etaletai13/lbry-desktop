@@ -30,14 +30,14 @@ const select = state => {
 };
 
 const perform = dispatch => ({
+  doBlur: () => dispatch(doBlurSearchInput()),
+  doFocus: () => dispatch(doFocusSearchInput()),
   onSearch: (query, size) => {
     dispatch(doSearch(query, size));
     dispatch(doNavigate(`/search`, { query }));
   },
   onSubmit: (uri, extraParams) => dispatch(doNavigate('/show', { uri, ...extraParams })),
   updateSearchQuery: query => dispatch(doUpdateSearchQuery(query)),
-  doFocus: () => dispatch(doFocusSearchInput()),
-  doBlur: () => dispatch(doBlurSearchInput()),
 });
 
 export default connect(

@@ -70,7 +70,7 @@ ul {
 
 input {
   background-color: transparent;
-  border-bottom: var(--input-border-size) dotted var(--input-border-color);
+  // border-bottom: var(--input-border-size) dotted var(--input-border-color);
   color: var(--input-color);
   cursor: text;
   font-family: 'metropolis-medium';
@@ -97,14 +97,14 @@ input {
 
   &:not(.input-copyable):not(.wunderbar__input):not(:placeholder-shown):not(:disabled) {
     &:hover {
-      border-color: var(--input-hover-border-color);
+      // border-color: var(--input-hover-border-color);
     }
 
-    border-bottom: var(--input-border-size) solid var(--input-border-color);
+    // border-bottom: var(--input-border-size) solid var(--input-border-color);
   }
 
   &:disabled {
-    border-bottom: var(--input-border-size) solid var(--input-disabled-color);
+    // border-bottom: var(--input-border-size) solid var(--input-disabled-color);
     color: var(--input-disabled-color);
     cursor: default;
   }
@@ -185,6 +185,7 @@ p {
 */
 .content {
   flex: 1;
+  // margin-right: 2px; // gives the scrollbar breathing room
   overflow: auto;
 }
 

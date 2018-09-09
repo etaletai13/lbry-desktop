@@ -90,24 +90,21 @@ class WunderBar extends React.PureComponent<Props> {
 
     return (
       <div className="wunderbar">
-        <Icon icon={icons.SEARCH} />
         <Autocomplete
           autoHighlight
-          wrapperStyle={{ flex: 1, position: 'relative' }}
-          value={wunderbarValue || ''}
-          items={suggestions}
           getItemValue={item => item.value}
-          onChange={this.handleChange}
-          onSelect={this.handleSubmit}
           inputProps={{
             onFocus: doFocus,
             onBlur: doBlur,
           }}
+          items={suggestions}
+          onChange={this.handleChange}
+          onSelect={this.handleSubmit}
           renderInput={props => (
             <input
               {...props}
               className="wunderbar__input"
-              placeholder="Enter LBRY URL here or search for videos, music, games and more"
+              placeholder="Enter LBRY URL here or search for videos, music, games, and more"
             />
           )}
           renderItem={({ value, type }, isHighlighted) => (
@@ -129,6 +126,8 @@ class WunderBar extends React.PureComponent<Props> {
               )}
             </div>
           )}
+          value={wunderbarValue || ''}
+          wrapperStyle={{ flex: 1, position: 'relative' }}
         />
       </div>
     );
