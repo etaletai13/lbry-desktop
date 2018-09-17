@@ -70,6 +70,7 @@ class PublishForm extends React.PureComponent<Props> {
     (this: any).handleNameChange = this.handleNameChange.bind(this);
     (this: any).handleChannelChange = this.handleChannelChange.bind(this);
     (this: any).editExistingClaim = this.editExistingClaim.bind(this);
+
     (this: any).getNewUri = this.getNewUri.bind(this);
   }
 
@@ -346,6 +347,8 @@ class PublishForm extends React.PureComponent<Props> {
       thumbnailPath,
       resetThumbnailStatus,
       isStillEditing,
+      claimForShortUri,
+      claimForUriWithChannel,
     } = this.props;
 
     const formDisabled = (!filePath && !editingURI) || publishing;
@@ -460,7 +463,7 @@ class PublishForm extends React.PureComponent<Props> {
               <FormField
                 type="radio"
                 name="content_cost"
-                postfix={__('Choose price')}
+                postfix={__('Choose price')}channel
                 checked={!contentIsFree}
                 disabled={formDisabled}
                 onChange={() => updatePublishForm({ contentIsFree: false })}
@@ -525,6 +528,9 @@ class PublishForm extends React.PureComponent<Props> {
                       winndingBidForClaimWithChannel={winndingBidForClaimWithChannel}
                       myClaimForUri={myClaimForUri}
                       onEditMyClaim={this.editExistingClaim}
+                      channel={channel}
+                      claimForShortUri={claimForShortUri}
+                      claimForUriWithChannel={claimForUriWithChannel}
                     />
                   }
                 />

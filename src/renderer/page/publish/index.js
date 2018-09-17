@@ -26,7 +26,7 @@ const select = state => {
 
 
   const { claimForShortUri, claimForUriWithChannel } = selectWinningClaims(state);
-  
+
   let winningBidForClaimUri;
   let winndingBidForClaimWithChannel;
   if (claimForUriWithChannel) {
@@ -35,11 +35,12 @@ const select = state => {
   if (claimForShortUri) {
     winningBidForClaimUri = claimForShortUri.effective_amount;
   }
-  
+
   return {
     ...publishState,
     // The winning claim for a short lbry uri
-    // claimForShortUri,
+    claimForShortUri,
+    claimForUriWithChannel,
     winningBidForClaimUri,
     winndingBidForClaimWithChannel,
     // My previously published claims under this short lbry uri

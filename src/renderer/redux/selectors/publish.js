@@ -102,18 +102,18 @@ export const selectIsResolvingPublishUris = createSelector(
         const isResolvingUri = resolvingUris.includes(uri);
         return isResolvingUri;
       }
-      
+
       return false;
     }
   )
-  
+
 export const selectWinningClaims = createSelector(
   selectState,
   selectMyClaimForUri,
   selectClaimsByUri,
   ({ name, channel }, myClaimForUri, claimsByUri) => {
       const shortUri = buildURI({ contentName: name });
-      
+
       let uriWithChannel;
       if (channel) {
         // debugger;
@@ -129,7 +129,10 @@ export const selectWinningClaims = createSelector(
         claimForShortUri = claimsByUri[shortUri];
         claimForUriWithChannel = claimsByUri[uriWithChannel];
       }
-      
+
+      console.log("shortUri: ", claimForShortUri);
+      console.log("channel: ", claimForUriWithChannel)
+
       return { claimForShortUri, claimForUriWithChannel };
   }
 )

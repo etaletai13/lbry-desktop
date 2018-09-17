@@ -3,6 +3,7 @@ import * as React from 'react';
 import Button from 'component/button';
 import { buildURI } from 'lbry-redux';
 import type { Claim } from 'types/claim';
+import { CHANNEL_NEW, CHANNEL_ANONYMOUS, MINIMUM_PUBLISH_BID } from 'constants/claim';
 
 type Props = {
   uri: ?string,
@@ -22,7 +23,10 @@ class BidHelpText extends React.PureComponent<Props> {
       myClaimForUri,
       onEditMyClaim,
       isStillEditing,
-      winndingBidForClaimWithChannel
+      winndingBidForClaimWithChannel,
+      channel,
+      claimForShortUri,
+      claimForUriWithChannel,
     } = this.props;
 
     if (!uri) {
@@ -59,32 +63,33 @@ class BidHelpText extends React.PureComponent<Props> {
         </React.Fragment>
       );
     }
-    
+
     if (!winningBidForClaimUri && !winndingBidForClaimWithChannel) {
       return __('Any amount will give you the winning bid.');
     }
-    
+
     const generateTakeOverMessage = (amount, uri) => {
-      return `${__('A deposit greater than')} ${amount} ${__('is needed to win')} ${uri}`
+      return `${__('A deposit greater than')} ${amount} ${__('is needed to control')} ${uri}`
     }
-    
-    let content;
-    if (winndingBidForClaimWithChannel) {
-      content = `Winning bid is ${winndingBidForClaimWithChannel}`
-    }
-    
-    // <div>
-    //   {__('However, you can still get')}{' '}
-    //   {(winndingBidForClaimWithChannel && winningBidForClaimUri) ? __('these URLs for any amount')}
-    // </div>
+
+
+console.log("winning", winningBidForClaimUri)
+console.log("test", winningBidForClaimUri.name)
+    const shortUri = buildURI({ contentName: claimForShortUri.name })
+console.log("short: ", shortUri)
     return (
       <React.Fragment>
         {winningBidForClaimUri && (
-          <div>{generateTakeOverMessage(winningBidForClaimUri, uri)}</div>
+          <div>{generateTakeOverMessage(winningBidForClaimUri, shortUri)}</div>
         )}
-        {winndingBidForClaimWithChannel && (
-          <div>{generateTakeOverMessage(winndingBidForClaimWithChannel, "uri with channel")}</div>
-        )}
+        {channel !== CHANNEL_ANONYMOUS &&
+          <div>
+            {winndingBidForClaimWithChannel ? (
+              <div>{generateTakeOverMessage(winndingBidForClaimWithChannel, uri)}</div>
+              ) : __("Any amount will let you control") + " " + uri
+            }
+          </div>
+        }
 
       </React.Fragment>
     )
