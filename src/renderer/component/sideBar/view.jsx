@@ -28,34 +28,35 @@ const SideBar = (props: Props) => {
   const badges = Object.keys(notifications).length;
 
   return (
-    <nav className="nav">
-      <div className="nav__links">
-        <ul className="nav__primary">
-          {navLinks.primary.map(({ label, path, active, icon }) => (
-            <li
-              key={path}
-              className={classnames('nav__link', {
-                'nav__link--active': active,
-              })}
-            >
-              <Button
-                navigate={path}
-                label={path === '/subscriptions' && badges ? `${label} (${badges})` : label}
-                icon={icon}
-              />
-            </li>
-          ))}
-        </ul>
-        <hr />
+    <nav className="navigation">
+      <div className="navigation__links">
+        {navLinks.primary.map(({ label, path, active, icon }) => (
+          <Button
+            // icon={icon}
+            className={classnames('navigation__link', {
+              'active': active
+            })}
+            key={path}
+            label={path === '/subscriptions' && badges ? `${label} (${badges})` : label}
+            navigate={path}
+          />
+        ))}
+
         <ul>
+          <li className="navigation__link title">Account</li>
+
           {navLinks.secondary.map(({ label, path, active, icon, subLinks = [] }) => (
             <li
-              key={label}
-              className={classnames('nav__link', {
-                'nav__link--active': active,
+              className={classnames('navigation__link', {
+                'active': active,
               })}
+              key={label}
             >
-              <Button navigate={path} label={label} icon={icon} />
+              <Button
+                // icon={icon}
+                label={label}
+                navigate={path}
+              />
 
               {
                 // The sublinks should be animated on open close
@@ -65,13 +66,13 @@ const SideBar = (props: Props) => {
               }
               {!!subLinks.length &&
                 active && (
-                  <ul key="0" className="nav__sub-links">
+                  <ul key="0" className="navigation__link__items">
                     {subLinks.map(({ label: subLabel, path: subPath, active: subLinkActive }) => (
                       <li
-                        key={subPath}
-                        className={classnames('nav__link nav__link--sub', {
-                          'nav__link--active': subLinkActive,
+                        className={classnames('navigation__link__item', {
+                          'active': subLinkActive,
                         })}
+                        key={subPath}
                       >
                         {subPath ? (
                           <Button navigate={subPath} label={subLabel} />

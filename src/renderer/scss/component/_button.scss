@@ -1,3 +1,4 @@
+/*
 button:disabled {
   cursor: default;
 }
@@ -12,7 +13,7 @@ button:disabled {
   cursor: pointer;
   display: flex;
   fill: currentColor; // for proper icon color
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   font-size: 12px;
   justify-content: center;
   padding: 10px;
@@ -94,7 +95,7 @@ button:disabled {
 
   &.btn--header-balance {
     color: var(--header-primary-color);
-    font-family: 'metropolis-medium';
+    // font-family: 'metropolis-medium';
     font-size: 14px;
 
     @media only screen and (min-width: $large-breakpoint) {
@@ -194,6 +195,7 @@ button:disabled {
   // TODO: ...what?
   margin-left: 5px;
 }
+*/
 
 /*
   Everything below this is variations of the default button classes
@@ -202,6 +204,7 @@ button:disabled {
   be applied via props
 */
 
+/*
 .btn--uri-indicator {
   transition: color var(--animation-duration) var(--animation-style);
 
@@ -209,3 +212,4 @@ button:disabled {
     color: var(--btn-color-inverse);
   }
 }
+*/

@@ -83,7 +83,7 @@
 .form-field__help,
 .form-field__label,
 .form-field__error {
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   font-size: 12px;
 }
 
@@ -102,7 +102,7 @@
 
 .form-field__prefix,
 .form-field__postfix {
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
 
   &.form-field--fix-no-height {
     line-height: 1;
@@ -128,7 +128,7 @@
   background-color: var(--input-select-bg-color);
   border-radius: 8px;
   color: var(--input-select-color);
-  font: normal 12px/30px 'metropolis-medium';
+  // font: normal 12px/30px 'metropolis-medium';
 
   &:disabled {
     opacity: 0.5;

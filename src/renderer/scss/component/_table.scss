@@ -28,12 +28,12 @@ table.table,
 
   th {
     border: 0;
-    font-family: 'metropolis-semibold';
+    // font-family: 'metropolis-semibold';
   }
 
   td {
     color: var(--color-help);
-    font-family: 'metropolis-medium';
+    // font-family: 'metropolis-medium';
     padding: $spacing-vertical * 1/6 0;
 
     .btn:not(.btn--link) {
@@ -76,7 +76,7 @@ table {
   &.table--help {
     td:nth-of-type(1) {
       color: var(--text-color);
-      font-family: 'metropolis-semibold';
+      // font-family: 'metropolis-semibold';
       min-width: 130px;
     }
 

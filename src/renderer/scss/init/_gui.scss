@@ -1,6 +1,7 @@
 // Generic html styles used accross the App
 // component specific styling should go in the component scss file
 
+/*
 @font-face {
   font-family: 'metropolis-bold';
   src: url('../../../static/font/metropolis/bold.eot');
@@ -24,7 +25,7 @@
 }
 
 @font-face {
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   src: url('../../../static/font/metropolis/medium.eot');
   src: url('../../../static/font/metropolis/medium.eot?#iefix') format('embedded-opentype'),
     url('../../../static/font/metropolis/medium.woff') format('woff'),
@@ -33,18 +34,19 @@
   font-weight: normal;
   font-style: normal;
 }
+*/
 
 html {
   height: 100%;
 }
 
 body {
+  @include font-sans;
   color: var(--text-color);
-  font-family: 'metropolis-semibold';
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 600;
   height: 100%;
-  line-height: 1.5;
+  line-height: 1.33;
   overflow: hidden;
 }
 
@@ -53,14 +55,9 @@ body {
 }
 
 code {
+  @include font-mono;
   background-color: var(--color-bg-alt);
-  font: 1.5em Consolas, 'Lucida Console', 'Source Sans', monospace;
-}
-
-// Without this buttons don't have the Metropolis font
-button {
-  font-family: inherit;
-  font-weight: inherit;
+  font-size: 1.5rem;
 }
 
 ul {
@@ -73,7 +70,7 @@ input {
   // border-bottom: var(--input-border-size) dotted var(--input-border-color);
   color: var(--input-color);
   cursor: text;
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   line-height: 1;
 
   &[type='radio'],
@@ -112,8 +109,8 @@ input {
 
 textarea {
   border: 1px solid var(--color-divider);
-  font-family: 'metropolis-medium';
-  font-size: 0.8em;
+  // font-family: 'metropolis-medium';
+  font-size: 0.8rem;
   padding: $spacing-vertical * 1/3;
   width: 100%;
 }
@@ -128,7 +125,7 @@ label[for] {
 }
 
 button + input {
-  margin-left: $spacing-vertical * 2/3;
+  // margin-left: $spacing-vertical * 2/3;
 }
 
 dl {
@@ -157,7 +154,7 @@ dd {
 }
 
 p {
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
 }
 
 .page {
@@ -231,7 +228,7 @@ p {
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   margin-top: 200px;
   text-align: center;
 }
@@ -270,13 +267,13 @@ p {
 }
 
 .credit-amount--large {
-  font-family: 'metropolis-semibold';
+  // font-family: 'metropolis-semibold';
   font-size: 36px;
 }
 
 .credit-amount--file-page {
   border-radius: 5px;
-  font-family: 'metropolis-bold';
+  // font-family: 'metropolis-bold';
   padding: 5px;
 }
 
@@ -301,7 +298,7 @@ p {
 .credit-amount--inherit {
   background-color: inherit;
   color: inherit;
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   font-size: inherit;
   font-weight: inherit;
   padding: 0;
@@ -336,7 +333,7 @@ p {
 }
 
 .busy-indicator {
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
 }
 
 .busy-indicator__loader {
@@ -360,7 +357,7 @@ p {
 
 .help {
   color: var(--color-help);
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   font-size: 12px;
 }
 
@@ -370,7 +367,7 @@ p {
 
 .meta {
   color: var(--color-meta-light);
-  font-family: 'metropolis-medium';
+  // font-family: 'metropolis-medium';
   font-size: 14px;
 }
 
