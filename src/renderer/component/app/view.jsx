@@ -39,29 +39,7 @@ class App extends React.PureComponent<Props> {
     this.mainContent = mainContent;
 
     if (this.mainContent) {
-      this.mainContent.appendChild(document.createElement('scrollbar'));
-
-      document
-        .getElementsByTagName('scrollbar')[0]
-        .appendChild(document.createElement('scrollbarTrack'));
-
-      /*
-      // Apparently gives full document height
-      document.body.scrollHeight
-      document.body.offsetHeight
-      document.documentElement.scrollHeight
-      */
-
-      /*
-        Full page height...needs page to finish loading
-        document.getElementsByClassName("main")[0].scrollHeight
-
-        Window height
-        document.body.scrollHeight
-      */
-
-      // this.mainContent.addEventListener('scroll', throttle(this.scrollListener, 750));
-      this.mainContent.addEventListener('scroll', this.scrollListener); //
+      this.mainContent.addEventListener('scroll', throttle(this.scrollListener, 750));
     }
 
     ReactModal.setAppElement('#window'); // fuck this
@@ -93,27 +71,8 @@ class App extends React.PureComponent<Props> {
 
   scrollListener() {
     const { recordScroll } = this.props;
-
-    const ratio = [
-      document.body.scrollHeight / document.getElementsByClassName('main')[0].scrollHeight,
-      document.getElementsByTagName('scrollbar')[0].clientWidth / document.body.scrollWidth
-    ];
-
-    const scrollbarDraggerHeight = Math.round(ratio[0] * document.getElementsByTagName('scrollbar')[0].clientHeight);
-    const scrollableHeight = document.getElementsByClassName('main')[0].scrollHeight - document.body.scrollHeight;
-
-    const scrollRatio = scrollableHeight / scrollbarDraggerHeight;
-
     if (this.mainContent) {
-      const scrollAmount = this.mainContent.scrollTop / scrollRatio;
-
-      document.getElementsByTagName('scrollbartrack')[0].style.height = `${scrollbarDraggerHeight}px`;
-
-      document.getElementsByTagName('scrollbartrack')[0].style.transform =
-        scrollAmount > 0 ? `translateY(${scrollAmount}px)` : `translateY(0)`;
-
-      throttle(recordScroll(this.mainContent.scrollTop), 750);
-      // recordScroll(this.mainContent.scrollTop);
+      recordScroll(this.mainContent.scrollTop);
     }
   }
 
