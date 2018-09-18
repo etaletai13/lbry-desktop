@@ -42,7 +42,7 @@ html {
 
 body {
   @include font-sans;
-  color: var(--text-color);
+  color: $black; // var(--text-color);
   font-size: 12px;
   font-weight: 600;
   height: 100%;

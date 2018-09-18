@@ -2,7 +2,7 @@
   background-color: white; // var(--nav-bg-color);
   border-right: 1px solid var(--color-divider);
   color: var(--nav-color);
-  padding-top: 24px;
+  padding-top: $spacing-vertical;
   position: relative;
   width: 200px;
 

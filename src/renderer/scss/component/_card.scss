@@ -7,10 +7,16 @@
   max-width: var(--card-max-width);
   position: relative;
   user-select: text;
-}
 
-.card > h1 {
-  word-wrap: break-word;
+  > h1 {
+    word-wrap: break-word;
+  }
+
+  // .card-media__internal__links should always be inside a card
+  .card-media__internal-links {
+    top: $spacing-vertical * 2/3; right: $spacing-vertical * 2/3;
+    position: absolute;
+  }
 }
 
 .card--section {
@@ -193,15 +199,6 @@
   }
 }
 
-// .card-media__internal__links should always be inside a card
-.card {
-  .card-media__internal-links {
-    top: $spacing-vertical * 2/3;
-    right: $spacing-vertical * 2/3;
-    position: absolute;
-  }
-}
-
 .card--small {
   .card-media__internal-links {
     top: $spacing-vertical * 1/3;
@@ -316,10 +313,21 @@
  It is a list of cards that extend past the right edge of the screen
  There are left/right arrows to scroll the cards and view hidden content
 */
+
 .card-row {
   padding-top: $spacing-vertical;
   white-space: nowrap;
   width: 100%;
+
+  &:first-of-type {
+    background-color: $black; // var(--color-primary);
+    color: $white;
+    padding-bottom: $spacing-vertical;
+
+    .card-row__header {
+      font-weight: 700;
+    }
+  }
 
   &:last-of-type {
     padding-bottom: $spacing-vertical * 2/3;

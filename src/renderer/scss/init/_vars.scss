@@ -5,6 +5,26 @@ $spacing-width: 36px;
 $medium-breakpoint: 1279px;
 $large-breakpoint: 1921px;
 
+
+
+$white:   white;
+$black:   #3e3e42;
+$gray:    #a4b7ae;
+$teal:    #27d27d;
+$cyan:    #27d2d2;
+$blue:    #277cd2;
+$indigo:  #2727d2;
+$violet:  #7c27d2;
+$fuchsia: #d227d2;
+$pink:    #d2277d;
+$red:     #d22727;
+$orange:  #d27c27;
+$yellow:  #d2d227;
+$lime:    #7dd227;
+$green:   #27d227;
+
+
+
 :root {
   // Widths & spacings
   --side-nav-width: 160px;
@@ -16,12 +36,12 @@ $large-breakpoint: 1921px;
   --snack-bar-width: 756px;
 
   // Colors: Brand
-  --color-white: white;
-  --color-black: #3e3e42; // black;
+  --color-white: $white;
+  --color-black: $black;
   --color-grey: #96a1ae; // #d6d6d6;
   --color-grey-light: #f6f6f6;
   --color-grey-dark: #888;
-  --color-primary: #3abf7d; // #44b098;
+  --color-primary: $teal; // #3abf7d; // #44b098;
   --color-primary-dark: #2c6e60;
   --color-primary-light: #64c9b2;
   --color-secondary: #6afbda;
