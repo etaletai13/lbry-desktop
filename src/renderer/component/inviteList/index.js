@@ -1,6 +1,5 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { selectUserInvitees, selectUserInviteStatusIsPending } from 'redux/selectors/user';
+import { selectUserInvitees, selectUserInviteStatusIsPending } from 'lbryinc';
 import InviteList from './view';
 
 const select = state => ({
@@ -10,4 +9,7 @@ const select = state => ({
 
 const perform = dispatch => ({});
 
-export default connect(select, perform)(InviteList);
+export default connect(
+  select,
+  perform
+)(InviteList);

@@ -3,6 +3,7 @@ import * as settings from 'constants/settings';
 import { doChangeVolume } from 'redux/actions/app';
 import { selectVolume } from 'redux/selectors/app';
 import { doPlayUri, doSetPlayingUri, savePosition } from 'redux/actions/content';
+import { doClaimEligiblePurchaseRewards } from 'lbryinc';
 import {
   makeSelectMetadataForUri,
   makeSelectContentTypeForUri,

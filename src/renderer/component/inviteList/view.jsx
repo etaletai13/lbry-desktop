@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'component/common/icon';
 import RewardLink from 'component/rewardLink';
-import rewards from 'rewards.js';
+import { rewards } from 'lbryinc';
 import * as icons from 'constants/icons';
 
 class InviteList extends React.PureComponent {
