@@ -1,0 +1,392 @@
+// Generic html styles used accross the App
+// component specific styling should go in the component scss file
+
+@font-face {
+  font-family: 'metropolis-bold';
+  src: url('../../../static/font/metropolis/bold.eot');
+  src: url('../../../static/font/metropolis/bold.eot?#iefix') format('embedded-opentype'),
+    url('../../../static/font/metropolis/bold.woff') format('woff'),
+    url('../../../static/font/metropolis/bold.ttf') format('truetype'),
+    url('../../../static/font/metropolis/bold.svg#metropolis-bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metropolis-semibold';
+  src: url('../../../static/font/metropolis/semibold.eot');
+  src: url('../../../static/font/metropolis/semibold.eot?#iefix') format('embedded-opentype'),
+    url('../../../static/font/metropolis/semibold.woff') format('woff'),
+    url('../../../static/font/metropolis/semibold.ttf') format('truetype'),
+    url('../../../static/font/metropolis/semibold.svg#metropolis-semibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metropolis-medium';
+  src: url('../../../static/font/metropolis/medium.eot');
+  src: url('../../../static/font/metropolis/medium.eot?#iefix') format('embedded-opentype'),
+    url('../../../static/font/metropolis/medium.woff') format('woff'),
+    url('../../../static/font/metropolis/medium.ttf') format('truetype'),
+    url('../../../static/font/metropolis/medium.svg#metropolis-medium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'metropolis-semibold';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  height: 100%;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font: 1.5em Consolas, 'Lucida Console', 'Source Sans', monospace;
+  background-color: var(--color-bg-alt);
+}
+
+// Without this buttons don't have the Metropolis font
+button {
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+input {
+  border-bottom: var(--input-border-size) dotted var(--input-border-color);
+  color: var(--input-color);
+  line-height: 1;
+  cursor: text;
+  background-color: transparent;
+  font-family: 'metropolis-medium';
+
+  &[type='radio'],
+  &[type='checkbox'],
+  &[type='file'],
+  &[type='select'] {
+    cursor: pointer;
+  }
+
+  &[type='file'] {
+    border-bottom: none;
+  }
+  &.input-copyable {
+    flex: 1;
+    background: var(--input-copyable-bg);
+    color: var(--input-copyable-color);
+    padding: 10px 16px;
+    border: 1px dashed var(--input-copyable-border);
+  }
+
+  &:not(.input-copyable):not(.wunderbar__input):not(:placeholder-shown):not(:disabled) {
+    &:hover {
+      border-color: var(--input-hover-border-color);
+    }
+    border-bottom: var(--input-border-size) solid var(--input-border-color);
+  }
+
+  &:disabled {
+    color: var(--input-disabled-color);
+    border-bottom: var(--input-border-size) solid var(--input-disabled-color);
+    cursor: default;
+  }
+}
+
+textarea {
+  font-family: 'metropolis-medium';
+  border: 1px solid var(--color-divider);
+  font-size: 0.8em;
+  width: 100%;
+  padding: $spacing-vertical * 1/3;
+}
+
+input::placeholder {
+  color: var(--input-placeholder-color);
+  opacity: 0.5;
+}
+
+label[for] {
+  cursor: pointer;
+}
+
+button + input {
+  margin-left: $spacing-vertical * 2/3;
+}
+
+dl {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  overflow-x: scroll;
+}
+
+dt {
+  float: left;
+  width: 20%;
+  padding: 0;
+  margin: 0;
+}
+
+dd {
+  float: left;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-family: 'metropolis-medium';
+}
+
+.page {
+  z-index: 0;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background-color: var(--color-bg);
+
+  @media only screen and (min-width: $medium-breakpoint) {
+    grid-template-columns: var(--side-nav-width-m) auto;
+  }
+
+  @media only screen and (min-width: $large-breakpoint) {
+    grid-template-columns: var(--side-nav-width-l) auto;
+  }
+}
+
+/*
+  Page content
+*/
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.main {
+  padding: $spacing-width $spacing-width;
+  margin: auto;
+  overflow: hidden;
+}
+
+.main--contained {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.main--no-padding {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin: 0;
+}
+
+.main--extra-padding {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.main--for-content {
+  padding: $spacing-width * 2/3;
+  display: flex;
+  justify-content: center;
+}
+
+.page__header {
+  padding: $spacing-vertical * 2/3;
+  padding-bottom: 0;
+}
+
+.page__title {
+  // not currently using page titles on any page
+}
+
+.page__empty {
+  margin-top: 200px;
+  text-align: center;
+  font-family: 'metropolis-medium';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+
+  > * {
+    flex-grow: 1;
+    flex-basis: 0;
+
+    &:not(:first-of-type):not(:last-of-type) {
+      margin: 0 $spacing-vertical / 3;
+    }
+
+    &:first-of-type {
+      margin-right: $spacing-vertical / 3;
+    }
+
+    &:last-of-type {
+      margin-left: $spacing-vertical / 3;
+    }
+  }
+}
+
+/* Custom text selection */
+*::selection {
+  background: var(--text-selection-bg);
+  color: var(--text-selection-color);
+}
+
+.credit-amount {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.credit-amount--large {
+  font-family: 'metropolis-semibold';
+  font-size: 36px;
+}
+
+.credit-amount--file-page {
+  font-family: 'metropolis-bold';
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.credit-amount--free {
+  color: var(--color-credit-free);
+
+  &.credit-amount--file-page {
+    color: var(--color-dark-blue);
+    background-color: var(--color-secondary);
+  }
+}
+
+.credit-amount--cost {
+  color: var(--color-credit-price);
+
+  &.credit-amount--file-page {
+    color: var(--color-black);
+    background-color: var(--color-yellow);
+  }
+}
+
+.credit-amount--inherit {
+  background-color: inherit;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: 'metropolis-medium';
+  padding: 0;
+}
+
+.divider__horizontal {
+  border-top: var(--color-divider);
+  margin: 16px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.column {
+  display: flex;
+
+  .column__item:not(:first-child) {
+    padding-left: $spacing-width * 2/3;
+  }
+}
+
+.truncated-text {
+  //display: inline-block;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.busy-indicator {
+  font-family: 'metropolis-medium';
+}
+
+.busy-indicator__loader {
+  background: url('../../../static/img/busy.gif') no-repeat center center;
+  display: inline-block;
+  margin: -1em 0;
+  min-width: 16px;
+  min-height: 8px;
+  vertical-align: middle;
+  padding: 0 30px;
+  &:last-child {
+    padding-right: 2px;
+  }
+  &:first-child {
+    padding-left: 2px;
+  }
+}
+
+.help {
+  font-size: 12px;
+  font-family: 'metropolis-medium';
+  color: var(--color-help);
+}
+
+.help--padded {
+  padding-top: $spacing-vertical * 2/3;
+}
+
+.meta {
+  font-family: 'metropolis-medium';
+  font-size: 14px;
+  color: var(--color-meta-light);
+}
+
+.empty {
+  color: var(--color-meta-light);
+  font-style: italic;
+}
+
+.qr-code {
+  border: 3px solid var(--color-white);
+  height: 134px;
+  width: 134px;
+  &.qr-code--right-padding {
+    margin-right: $spacing-vertical * 2/3;
+  }
+  &.qr-code--top-padding {
+    margin-top: $spacing-vertical * 2/3;
+  }
+}
+
+.error-text {
+  color: var(--color-error);
+}
+
+.thumbnail-preview {
+  height: var(--thumbnail-preview-height);
+  width: var(--thumbnail-preview-width);
+}

@@ -1,0 +1,76 @@
+.spinner {
+  margin: $spacing-vertical * 1/3;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+
+  .rect {
+    display: inline-block;
+    height: 100%;
+    width: 6px;
+    margin: 0 2px;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+
+    &.rect2 {
+      animation-delay: -1.1s;
+    }
+
+    &.rect3 {
+      animation-delay: -1s;
+    }
+
+    &.rect4 {
+      animation-delay: -0.9s;
+    }
+
+    &.rect5 {
+      animation-delay: -0.8s;
+    }
+  }
+}
+
+.spinner--light {
+  .rect {
+    background-color: var(--color-white);
+  }
+}
+
+.spinner--dark {
+  .rect {
+    background-color: var(--color-black);
+  }
+}
+
+.spinner--splash {
+  margin-top: $spacing-vertical;
+
+  .rect {
+    background-color: var(--color-white);
+  }
+}
+
+.spinner--small {
+  margin: $spacing-vertical * 1/3 0;
+  width: 40px;
+  height: 32px;
+  text-align: center;
+  font-size: 10px;
+
+  .rect {
+    height: 100%;
+    width: 3px;
+    margin: 0 2px;
+  }
+}
+
+@keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
